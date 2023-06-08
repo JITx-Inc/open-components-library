@@ -19,17 +19,17 @@ defpackage ocdb/utils/parts :
   import ocdb/utils/parametric-components
   import ocdb/utils/property-structs
 
-; HACK: prototype to allow injecting local 3d model files
-public defn create-model-3d (filename: String) -> Model3D :
-  ; Relative to "open-components-database/utils"
-  val path = to-string("../../%_" % [filename])
-  Model3D(
-    path,
-    Vec3D(0.0, 0.0, 0.0),
-    ; Pat: Has to be non-zero to show up in Kicad (not sure why?)
-    Vec3D(1.0, 1.0, 1.0),
-    Vec3D(0.0, 0.0, 0.0),
-  )
+; ; HACK: prototype to allow injecting local 3d model files
+; public defn create-model-3d (filename: String) -> Model3D :
+;   ; Relative to "open-components-database/utils"
+;   val path = to-string("../../%_" % [filename])
+;   Model3D(
+;     path,
+;     Vec3D(0.0, 0.0, 0.0),
+;     ; Pat: Has to be non-zero to show up in Kicad (not sure why?)
+;     Vec3D(1.0, 1.0, 1.0),
+;     Vec3D(0.0, 0.0, 0.0),
+;   )
 
 ;======================================
 ;============ Public API ==============
@@ -45,6 +45,7 @@ public defn create-model-3d (filename: String -- P:Vec3D = Vec3D(0.0, -2.0, 0.0)
       P,
       S,
       R,
+      ["BodyLayerId" => "69"]
     )
   else :
     fatal("Expected 3D file %_ cannot be accessed. Did you provide the full path and correct name of the file?" % [path])

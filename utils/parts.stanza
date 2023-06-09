@@ -41,7 +41,7 @@ public defn create-model-3d (filename: String -- P:Vec3D = Vec3D(0.0, -2.0, 0.0)
   val path = to-string("%_" % [filename])
   if file-exists?(path) :
     Model3D(
-      path,
+      to-string("../../%_" % [path]),
       P,
       S,
       R,

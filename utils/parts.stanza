@@ -45,7 +45,7 @@ public defn create-model-3d (filename: String -- P:Vec3D = Vec3D(0.0, -2.0, 0.0)
       P,
       S,
       R,
-      ["BodyLayerId" => "69"]
+      ["BodyLayerId" => "69" "BodyOpacity3D" => "1.0"]
     )
   else :
     fatal("Expected 3D file %_ cannot be accessed. Did you provide the full path and correct name of the file?" % [path])
